@@ -107,7 +107,7 @@ void draw() {
   t.left(90);
   for (int i = 0; i < 3600; i++) { // 360 degrees in circle / length of "side," in this case .1 == 3600
     stroke(map(i, 0, 3600, 0, 255), 0, 0); // for some class
-    t.forward(.65);
+    t.forward(65);
     t.left(.1);
   }
 
