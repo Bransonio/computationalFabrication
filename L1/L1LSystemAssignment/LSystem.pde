@@ -35,9 +35,6 @@ class LSystem extends BaseLSystem {
   public void iterate() {
     // get a copy of the current iteration string
     String current = this.getIterationString();
-    println(" ");
-    println("here: ",current);
-    println(" ");
     
     // Now clear the current interation string
     this.clearCurrentStringBuffer();
@@ -92,7 +89,8 @@ class LSystem extends BaseLSystem {
           t.forward(dist);
           break; // The "break" exits out of the switch statement and prevents the next cases from running
          case 'B':
-         t.forward(dist);
+           t.forward(-dist);
+           break;
          case '+':
            // [TODO]: Implement operations for each l-system vocabulary
            // [SOLUTION] : WATCH ME GO!
@@ -102,9 +100,8 @@ class LSystem extends BaseLSystem {
            t.left(angle);
            break;
          default:
-           break;
            // Throw an error if we don't have a draw operation implemented 
-           //throw new IllegalArgumentException("Missing a drawing operation case for character: " + c.toString());  
+           throw new IllegalArgumentException("Missing a drawing operation case for character: " + c.toString());  
       }
     }
   }
