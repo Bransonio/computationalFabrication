@@ -6,6 +6,7 @@ import java.util.HashMap;
 // [TODO]: create your own L-System initialization methods
 // and use/test in the setup() method of L1LSystemAssignment file. 
 // See example for Square Lsystem below.
+// [SOLUTION]: Below!
 
 // Square Lsystem initialization 
 // This method returns an Lsystem object that uses
@@ -30,11 +31,11 @@ LSystem initSquare() {
 // My first custom L-system. Found it while playing around.
 LSystem init1() {
   // initialize turtle variables
-  strokeWeight(1);
+  strokeWeight(.5);
   stroke(255);
   float moveDist = 10;
   float rotateAngle = 120;
-  float scaleFactor = .1;
+  float scaleFactor = .2;
   
   // The intial axiom / input string
   String axiom = "F+F+F+";
@@ -47,21 +48,19 @@ LSystem init1() {
   return new LSystem(axiom, rules, moveDist, rotateAngle, scaleFactor);
 }
 
-// This system borrows heavily from examples on Wikipedia in an attempt to figure out how realistic plant designs
-// are simulated. Instead of a plant, I made a city.
-// https://en.wikipedia.org/wiki/L-system
+// This second system borrows heavily from examples on Wikipedia in an attempt to figure out how realistic plant designs
+// are simulated. Instead of a plant, I made a city. https://en.wikipedia.org/wiki/L-system
 LSystem init2() {
   // initialize turtle variables
   strokeWeight(1);
   float moveDist = 10;
   float rotateAngle = 90;
-  float scaleFactor = .7;
+  float scaleFactor = .4;
   stem = true; // begins drawing from bottom of window
   
-  // The intial axiom / input string
   String axiom = "D"; // This character is not drawn. D for dummy.
   
-  // Create any production rules
+  // Production Rules
   HashMap<Character, String> rules = new HashMap<>();
   rules.put('F', "FF");
   rules.put('D', "F-[[D]+D]+F[+FD]-D");
@@ -70,27 +69,23 @@ LSystem init2() {
   return new LSystem(axiom, rules, moveDist, rotateAngle, scaleFactor);
 }
 
+// Dandelion-like. Yippee.
 LSystem init3() {
-    // initialize turtle variables
-  strokeWeight(1);
+  // initialize turtle variables
+  strokeWeight(.5);
+  stroke(0,255,0);
   float moveDist = 10;
   float rotateAngle = 45;
-  float scaleFactor = .03;
+  float scaleFactor = .04;
   stem = true; // begins drawing from bottom of window
-  
   
   // The intial axiom / input string
   String axiom = "D"; // This character is not drawn.
   
   // Create any production rules
   HashMap<Character, String> rules = new HashMap<>();
-  //rules.put('F', "FF");
-  //rules.put('D', "F+[[D]-D]-F[-FD]+D");
   rules.put('D', "DF");
   rules.put('F', "F[FB+FB+FB+FB+FB+FB+FB+FB]");
-
-  
-  //rules.put('B', "+F-F");
     
   // Create and return the Lsystem
   return new LSystem(axiom, rules, moveDist, rotateAngle, scaleFactor);

@@ -10,7 +10,7 @@ import processing.pdf.*;
 import Turtle.*;
 
 // Set to true to export as a PDF; false for SVG
-boolean shouldExportAsPDF = true;
+boolean shouldExportAsPDF = false;
 
 // How many l-system iterations to do before drawing
 // Press 'm' to increase by 1; 'n' to decrease by 1 (min = 0);
@@ -19,14 +19,17 @@ int numIterations = 0;
 // Variable to store an L-System (either LSystem or ProbabilisticLSystem)
 BaseLSystem lSys;
 
-// The Turtle (do not rename) -- his name is Tim
+// The Turtle (do not rename) -- his name is Timothy Turtle.
 Turtle t;
 
 // If flagged true in ExampleLSystemDesigns, Turtle resets to bottom instead of center. 
+// This allows Timothy Turtle to draw plantlike stem.
 boolean stem = false;
 
 void setup() {
   // set-up drawing
+    //pixelDensity(2);
+
   size(700, 700);
   background(0);
   stroke(255,191,0);
@@ -36,11 +39,12 @@ void setup() {
   
   // Initialize an L-System using 
   // a method in ExampleLSystemDesigns
-  // [TODO]: call your L-system design method below
-  // to create your l-system
-  //lSys = initSquare();
-  //lSys = init1();  
-  lSys = init2();
+  
+  // My three designs below:
+  lSys = init1();  
+  //lSys = init2();
+  //lSys = init3();
+  
   // Don't loop the draw function
   noLoop();
  

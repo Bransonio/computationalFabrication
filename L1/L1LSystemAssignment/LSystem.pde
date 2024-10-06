@@ -83,17 +83,15 @@ class LSystem extends BaseLSystem {
     // and do turtle operations based on the character
     for (int i = 0; i < currentIteration.length(); i++) {
       Character c = currentIteration.charAt(i); 
-      // [TODO]: Implement different l-system vocabulary
       switch (c) {
         case 'F':
           t.forward(dist);
-          
           break; // The "break" exits out of the switch statement and prevents the next cases from running
          case 'B':
            t.forward(-dist);
            break;
          case 'D':
-           // do nothing ie DUMMY
+           // do nothing.
            break;
          case '+':
            t.right(angle);
