@@ -27,7 +27,7 @@ LSystem initSquare() {
   return new LSystem(axiom, rules, moveDist, rotateAngle, scaleFactor);
 }
 
-// My first custom L-system. Found it from just playing around.
+// My first custom L-system. Found it while playing around.
 LSystem init1() {
   // initialize turtle variables
   strokeWeight(1);
@@ -42,26 +42,54 @@ LSystem init1() {
   // Create any production rules
   HashMap<Character, String> rules = new HashMap<>();
   rules.put('F', "+F+F");
-  //rules.put('B', "+F-F");
     
   // Create and return the Lsystem
   return new LSystem(axiom, rules, moveDist, rotateAngle, scaleFactor);
 }
 
-// My second custom L-system. Attempting to make a tree.
+// This system borrows heavily from examples on Wikipedia in an attempt to figure out how realistic plant designs
+// are simulated. Instead of a plant, I made a city.
+// https://en.wikipedia.org/wiki/L-system
 LSystem init2() {
   // initialize turtle variables
   strokeWeight(1);
   float moveDist = 10;
-  float rotateAngle = 30;
-  float scaleFactor = .1;
+  float rotateAngle = 90;
+  float scaleFactor = .7;
+  stem = true; // begins drawing from bottom of window
   
   // The intial axiom / input string
-  String axiom = "F";
+  String axiom = "D"; // This character is not drawn. D for dummy.
   
   // Create any production rules
   HashMap<Character, String> rules = new HashMap<>();
-  rules.put('F', "+F+F");
+  rules.put('F', "FF");
+  rules.put('D', "F-[[D]+D]+F[+FD]-D");
+      
+  // Create and return the Lsystem
+  return new LSystem(axiom, rules, moveDist, rotateAngle, scaleFactor);
+}
+
+LSystem init3() {
+    // initialize turtle variables
+  strokeWeight(1);
+  float moveDist = 10;
+  float rotateAngle = 45;
+  float scaleFactor = .03;
+  stem = true; // begins drawing from bottom of window
+  
+  
+  // The intial axiom / input string
+  String axiom = "D"; // This character is not drawn.
+  
+  // Create any production rules
+  HashMap<Character, String> rules = new HashMap<>();
+  //rules.put('F', "FF");
+  //rules.put('D', "F+[[D]-D]-F[-FD]+D");
+  rules.put('D', "DF");
+  rules.put('F', "F[FB+FB+FB+FB+FB+FB+FB+FB]");
+
+  
   //rules.put('B', "+F-F");
     
   // Create and return the Lsystem

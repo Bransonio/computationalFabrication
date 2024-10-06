@@ -22,6 +22,9 @@ BaseLSystem lSys;
 // The Turtle (do not rename) -- his name is Tim
 Turtle t;
 
+// If flagged true in ExampleLSystemDesigns, Turtle resets to bottom instead of center. 
+boolean stem = false;
+
 void setup() {
   // set-up drawing
   size(700, 700);
@@ -36,7 +39,8 @@ void setup() {
   // [TODO]: call your L-system design method below
   // to create your l-system
   //lSys = initSquare();
-  lSys = init1();  
+  //lSys = init1();  
+  lSys = init2();
   // Don't loop the draw function
   noLoop();
  
@@ -64,11 +68,17 @@ void draw() {
   // Draw the LSystem using the turtle 
   lSys.drawLSystem(t);
   
+  centerOutput();
+  
   // Print the iteration number
   lSys.printIterationNumber();
   
   // Print the LSystem's State - console gets a bit overwhelmed with iterations >5
   lSys.printState();
+}
+
+void centerOutput(){
+  
 }
 
 void keyPressed() {
@@ -126,7 +136,13 @@ void resetTurtle() {
   
   // NOTE: You can change the start position below if the image doesn't fit.
   // y = height-20 works well if you need to draw a tree at the bottom
-  t.goToPoint(width / 2, height / 2);
+  
+  if (stem) {
+    t.goToPoint(width / 2, height - 20);
+  } else{
+    t.goToPoint(width / 2, height / 2);
+  }
+  
   t.setHeading(0);
   t.penDown();
 }

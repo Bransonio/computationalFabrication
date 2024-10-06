@@ -87,17 +87,25 @@ class LSystem extends BaseLSystem {
       switch (c) {
         case 'F':
           t.forward(dist);
+          
           break; // The "break" exits out of the switch statement and prevents the next cases from running
          case 'B':
            t.forward(-dist);
            break;
+         case 'D':
+           // do nothing ie DUMMY
+           break;
          case '+':
-           // [TODO]: Implement operations for each l-system vocabulary
-           // [SOLUTION] : WATCH ME GO!
            t.right(angle);
            break;
          case '-':
            t.left(angle);
+           break;
+         case '[':
+           t.push();
+           break;
+         case ']':
+           t.pop();
            break;
          default:
            // Throw an error if we don't have a draw operation implemented 
