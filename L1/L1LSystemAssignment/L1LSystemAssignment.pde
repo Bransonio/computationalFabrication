@@ -41,8 +41,8 @@ void setup() {
   // a method in ExampleLSystemDesigns
   
   // My three designs below:
-  lSys = init1();  
-  //lSys = init2();
+  //lSys = init1();  
+  lSys = init2();
   //lSys = init3();
   
   // Don't loop the draw function

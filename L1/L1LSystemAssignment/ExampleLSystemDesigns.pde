@@ -14,7 +14,7 @@ import java.util.HashMap;
 LSystem initSquare() {
   // initialize turtle variables
   float moveDist = 10;
-  float rotateAngle = 90;
+  float rotateAngle = 30;
   float scaleFactor = 1;
   
   // The intial axiom / input string
